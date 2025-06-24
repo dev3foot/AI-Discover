@@ -1,12 +1,12 @@
-# AllAI - AI 툴을 찾아주는 큐레이션 서비스
+# AI Discover - AI를 쉽게 발견하는 곳
 
-![AllAI Banner](https://img.shields.io/badge/AllAI-AI%20Tool%20Curator-blue?style=for-the-badge)
+![AI Discover Banner](https://img.shields.io/badge/AI%20Discover-AI%20Tool%20Curator-blue?style=for-the-badge)
 ![Version](https://img.shields.io/badge/version-1.0.0-green?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-yellow?style=flat-square)
 
 ## 📖 프로젝트 소개
 
-**AllAI**는 내게 딱 맞는 AI 툴을 찾아주는 한국형 큐레이션 플랫폼입니다. 
+**AI Discover**는 AI를 쉽게 발견할 수 있는 플랫폼입니다. 
 
 복잡하고 다양한 AI 도구들 중에서 사용자의 목적과 필요에 맞는 최적의 도구를 쉽고 빠르게 찾을 수 있도록 도와줍니다.
 
@@ -161,7 +161,7 @@ ai-tool-curator/
 
 <div align="center">
 
-**올바른 AI 도구 선택의 시작, AllAI** 🚀
+**AI를 쉽게 발견하는 곳, AI Discover** 🚀
 
 Made with ❤️ by [dev3foot](https://github.com/dev3foot)
 
