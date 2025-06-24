@@ -132,6 +132,19 @@ header {
     color: var(--color-primary);
 }
 
+.nav-container h1 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.update-date {
+    font-size: var(--font-size-xs);
+    font-weight: 400;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
