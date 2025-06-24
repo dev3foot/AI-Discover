@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllAI - 내게 딱 맞는 AI 툴을 찾아주는 한국형 큐레이션 플랫폼</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1><a href="index.html">AllAI</a></h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="tools.html">툴 찾기</a></li>
+                    <li><a href="reviews.html">사용 후기</a></li>
+                    <li><a href="guide.html">입문 가이드</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-content">
+            <section id="hero" class="hero-section">
+                <div class="hero-slider">
+                    <!-- 슬라이드 1 -->
+                    <div class="hero-slide active" data-bg="#1e40af">
+                        <div class="hero-container">
+                            <div class="hero-text">
+                                <h1 class="hero-title">AI로 변화하는 세상,<br>당신의 도구를 찾아보세요</h1>
+                                <p class="hero-subtitle">최신 AI 기술로 업무 효율성을 높이고 새로운 가능성을 발견하세요.<br>전문가가 엄선한 AI 도구들을 한 곳에서 비교해보세요.</p>
+                            </div>
+                            <div class="hero-image">
+                                <div class="hero-illustration">
+                                    <div class="illustration-circle circle-1"></div>
+                                    <div class="illustration-circle circle-2"></div>
+                                    <div class="illustration-circle circle-3"></div>
+                                    <div class="illustration-center">
+                                        <span class="ai-icon">🤖</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 슬라이드 2 -->
+                    <div class="hero-slide" data-bg="#3b82f6">
+                        <div class="hero-container">
+                            <div class="hero-text">
+                                <h1 class="hero-title">스마트한 업무 혁신,<br>AI 도구로 시작하세요</h1>
+                                <p class="hero-subtitle">반복적인 업무는 AI에게 맡기고, 창의적인 일에 집중하세요.<br>당신의 업무 스타일에 맞는 AI 도구를 찾아보세요.</p>
+                            </div>
+                            <div class="hero-image">
+                                <div class="hero-illustration">
+                                    <div class="illustration-circle circle-1"></div>
+                                    <div class="illustration-circle circle-2"></div>
+                                    <div class="illustration-circle circle-3"></div>
+                                    <div class="illustration-center">
+                                        <span class="ai-icon">⚡</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 슬라이드 3 -->
+                    <div class="hero-slide" data-bg="#0f172a">
+                        <div class="hero-container">
+                            <div class="hero-text">
+                                <h1 class="hero-title">AI 초보자도 쉽게,<br>단계별 가이드 제공</h1>
+                                <p class="hero-subtitle">복잡한 AI 기술을 쉽게 이해하고 활용할 수 있도록 도와드립니다.<br>입문자를 위한 친절한 가이드를 확인해보세요.</p>
+                            </div>
+                            <div class="hero-image">
+                                <div class="hero-illustration">
+                                    <div class="illustration-circle circle-1"></div>
+                                    <div class="illustration-circle circle-2"></div>
+                                    <div class="illustration-circle circle-3"></div>
+                                    <div class="illustration-center">
+                                        <span class="ai-icon">📚</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 슬라이드 인디케이터 -->
+                <div class="hero-indicators">
+                    <button class="hero-indicator active" data-slide="0"></button>
+                    <button class="hero-indicator" data-slide="1"></button>
+                    <button class="hero-indicator" data-slide="2"></button>
+                </div>
+
+            </section>
+
+            <section id="tool-finder" class="tool-finder-section">
+                <div class="section-content">
+                    <h2 class="main-title">당신에게 맞는 AI 툴을 찾아보세요</h2>
+                    
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="어떤 AI 도구를 찾고 계신가요?">
+                        <button class="search-button">검색</button>
+                    </div>
+                    
+                    <div class="new-filter-container">
+                        <!-- 기능 필터 -->
+                        <div class="filter-row">
+                            <span class="filter-label">기능:</span>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" name="function" value="text" id="func-text">
+                                    <span>텍스트생성</span>
+                                    <div class="tooltip-icon" data-tooltip="글쓰기, 요약, 이메일, 문서 작성 등에 특화된 도구예요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="function" value="image" id="func-image">
+                                    <span>이미지생성</span>
+                                    <div class="tooltip-icon" data-tooltip="일러스트, 썸네일, 로고 등을 만드는 이미지 생성 도구예요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="function" value="video" id="func-video">
+                                    <span>영상제작</span>
+                                    <div class="tooltip-icon" data-tooltip="영상 자동 생성, 편집, 자막 삽입 등에 활용돼요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="function" value="voice" id="func-voice">
+                                    <span>음성/음악생성</span>
+                                    <div class="tooltip-icon" data-tooltip="더빙, 보이스 클로닝부터 음악 작곡까지 음성과 관련된 다양한 생성 도구예요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="function" value="development" id="func-dev">
+                                    <span>개발도구</span>
+                                    <div class="tooltip-icon" data-tooltip="코드 생성, 테스트 자동화 등 개발 업무에 도움을 줘요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="function" value="design" id="func-design">
+                                    <span>디자인/제작</span>
+                                    <div class="tooltip-icon" data-tooltip="로고, 3D 모델링, 프로토타입, 시각 자산 제작 도구예요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="function" value="automation" id="func-automation">
+                                    <span>업무자동화</span>
+                                    <div class="tooltip-icon" data-tooltip="회의록, 이메일, 보고서 등 반복적인 작업을 자동으로 처리해줘요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="function" value="data" id="func-data">
+                                    <span>데이터분석</span>
+                                    <div class="tooltip-icon" data-tooltip="데이터를 정리·시각화하고 통계 기반으로 분석해줘요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="function" value="translation" id="func-translation">
+                                    <span>번역/언어</span>
+                                    <div class="tooltip-icon" data-tooltip="자연스럽고 정확한 다국어 번역을 도와주는 도구예요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="function" value="education" id="func-education">
+                                    <span>교육/학습</span>
+                                    <div class="tooltip-icon" data-tooltip="질문에 답하거나 개념을 설명해주는 학습 보조 도구예요.">ⓘ</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 사용목적 필터 -->
+                        <div class="filter-row">
+                            <span class="filter-label">목적:</span>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" name="purpose" value="business" id="purpose-business">
+                                    <span>업무용</span>
+                                    <div class="tooltip-icon" data-tooltip="회사나 실무에서 사용할 수 있는 문서, 회의, 보고용 도구예요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="purpose" value="content" id="purpose-content">
+                                    <span>콘텐츠제작</span>
+                                    <div class="tooltip-icon" data-tooltip="영상, 블로그, 이미지 등 창작 콘텐츠를 만들 때 활용돼요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="purpose" value="study" id="purpose-study">
+                                    <span>학습/공부용</span>
+                                    <div class="tooltip-icon" data-tooltip="공부를 돕거나 요약, 문제 풀이 등에 활용할 수 있어요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="purpose" value="developer" id="purpose-developer">
+                                    <span>개발자용</span>
+                                    <div class="tooltip-icon" data-tooltip="코드 작성, 테스트, 데이터 처리 등 개발에 필요한 도구예요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="purpose" value="brand" id="purpose-brand">
+                                    <span>브랜드/디자인</span>
+                                    <div class="tooltip-icon" data-tooltip="로고, 썸네일, 컬러 등 시각 디자인에 특화된 도구예요.">ⓘ</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 가격 필터 -->
+                        <div class="filter-row">
+                            <span class="filter-label">가격:</span>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="radio" name="price" value="free" id="price-free">
+                                    <span>무료</span>
+                                    <div class="tooltip-icon" data-tooltip="회원가입 없이 완전히 무료로 사용할 수 있어요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="price" value="freemium" id="price-freemium">
+                                    <span>부분무료</span>
+                                    <div class="tooltip-icon" data-tooltip="기본 기능은 무료, 고급 기능은 유료예요.">ⓘ</div>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="price" value="paid" id="price-paid">
+                                    <span>유료</span>
+                                    <div class="tooltip-icon" data-tooltip="일정 금액을 결제해야 사용할 수 있어요.">ⓘ</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 선택된 필터 태그 표시 -->
+                        <div class="selected-tags-container" id="selected-tags-container" style="display: none;">
+                            <div class="selected-tags" id="selected-tags"></div>
+                            <button class="clear-all-btn" id="clear-all-filters">모두 지우기</button>
+                        </div>
+                    </div>
+
+
+                    <div class="tools-grid">
+                        <!-- AI 툴 카드들이 동적으로 로드됩니다 -->
+                    </div>
+
+                    <div class="more-tools-container">
+                        <button class="more-tools-btn" onclick="window.location.href='tools.html'">
+                            AI 툴 더보기
+                        </button>
+                    </div>
+                    
+                    <div id="no-results" class="no-results" style="display: none;">
+                        <p>선택한 필터에 맞는 AI 도구가 없습니다.</p>
+                        <p>다른 필터를 선택해보세요.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== 직군별 AI 조합 섹션 (출시 후 활성화 예정) ===== 
+            <section id="ai-combinations" class="ai-combinations-section">
+                <div class="section-content">
+                    <h2 class="section-title">🔥 직군별 TOP AI 조합</h2>
+                    
+                    <div class="combo-selector">
+                        <div class="combo-tabs">
+                            <button class="combo-tab active" data-combo="designer">
+                                <span class="combo-tab-icon">🎨</span>
+                                <span class="combo-tab-text">디자이너</span>
+                            </button>
+                            <button class="combo-tab" data-combo="planner">
+                                <span class="combo-tab-icon">📋</span>
+                                <span class="combo-tab-text">기획자</span>
+                            </button>
+                            <button class="combo-tab" data-combo="developer">
+                                <span class="combo-tab-icon">💻</span>
+                                <span class="combo-tab-text">개발자</span>
+                            </button>
+                            <button class="combo-tab" data-combo="marketer">
+                                <span class="combo-tab-icon">📊</span>
+                                <span class="combo-tab-text">마케터</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="combo-showcase" id="combo-showcase">
+                        <div class="combo-cards" id="combo-cards">
+                            동적으로 생성될 조합 카드들
+                        </div>
+                    </div>
+
+                    <div class="section-bottom">
+                        <button class="more-tools-btn" onclick="window.location.href='tools.html'">
+                            더 많은 AI 도구 보기
+                        </button>
+                    </div>
+                </div>
+            </section>
+            ===== -->
+
+            <!-- ===== AI 정보 허브 섹션 (출시 후 활성화 예정) ===== 
+            <section id="ai-info-hub" class="ai-info-hub-section">
+                <div class="section-content">
+                    <h2 class="section-title">📚 AI 정보 허브</h2>
+                    
+                    <div class="info-hub-grid">
+                        AI 뉴스 카드
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <h3 class="info-card-title">
+                                    <span class="info-icon">📰</span>
+                                    AI 관련 뉴스/아티클
+                                </h3>
+                                <div class="info-nav-buttons">
+                                    <button class="info-nav-btn info-prev" disabled>‹</button>
+                                    <button class="info-nav-btn info-next">›</button>
+                                </div>
+                            </div>
+                            <div class="info-card-content">
+                                <div class="info-items">
+                                    <a href="https://www.naver.com/" target="_blank" class="info-item info-link">
+                                        <h4 class="info-item-title">OpenAI, GPT-5 개발 중단 발표</h4>
+                                        <p class="info-item-desc">AI 안전성 연구에 더 집중하기 위해 GPT-5 개발을 일시 중단한다고...</p>
+                                        <span class="info-item-date">2024.01.15</span>
+                                    </a>
+                                    <a href="https://www.naver.com/" target="_blank" class="info-item info-link">
+                                        <h4 class="info-item-title">구글, Gemini Pro 업데이트 공개</h4>
+                                        <p class="info-item-desc">멀티모달 기능이 크게 개선된 새로운 Gemini Pro 버전을...</p>
+                                        <span class="info-item-date">2024.01.12</span>
+                                    </a>
+                                    <a href="https://www.naver.com/" target="_blank" class="info-item info-link">
+                                        <h4 class="info-item-title">메타, 오픈소스 AI 모델 Llama 3 출시</h4>
+                                        <p class="info-item-desc">더욱 강력해진 성능과 한국어 지원이 개선된 Llama 3가...</p>
+                                        <span class="info-item-date">2024.01.10</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="info-card-footer">
+                                <div class="info-indicators">
+                                    <span class="info-dot active"></span>
+                                    <span class="info-dot"></span>
+                                    <span class="info-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        추천 블로그 카드
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <h3 class="info-card-title">
+                                    <span class="info-icon">📝</span>
+                                    AI 행사
+                                </h3>
+                                <div class="info-nav-buttons">
+                                    <button class="info-nav-btn info-prev" disabled>‹</button>
+                                    <button class="info-nav-btn info-next">›</button>
+                                </div>
+                            </div>
+                            <div class="info-card-content">
+                                <div class="info-items">
+                                    <a href="https://www.naver.com/" target="_blank" class="info-item info-link">
+                                        <h4 class="info-item-title">AI SEOUL 2024 컨퍼런스</h4>
+                                        <p class="info-item-desc">국내 최대 규모 AI 컨퍼런스로 글로벌 AI 리더들의 강연과 네트워킹</p>
+                                        <span class="info-item-date">2024.03.15-16 | 코엑스</span>
+                                    </a>
+                                    <a href="https://www.naver.com/" target="_blank" class="info-item info-link">
+                                        <h4 class="info-item-title">AI 개발자 밋업 2024</h4>
+                                        <p class="info-item-desc">AI 개발자들을 위한 기술 공유 밋업. 실무 사례와 최신 트렌드 공유</p>
+                                        <span class="info-item-date">2024.02.20 | 강남 스타트업 허브</span>
+                                    </a>
+                                    <a href="https://www.naver.com/" target="_blank" class="info-item info-link">
+                                        <h4 class="info-item-title">AI 비즈니스 활용 웨비나</h4>
+                                        <p class="info-item-desc">중소기업을 위한 AI 도구 활용법. 실제 도입 사례와 ROI 분석</p>
+                                        <span class="info-item-date">2024.02.05 | 온라인 웨비나</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="info-card-footer">
+                                <div class="info-indicators">
+                                    <span class="info-dot active"></span>
+                                    <span class="info-dot"></span>
+                                    <span class="info-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        인기 영상 카드
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <h3 class="info-card-title">
+                                    <span class="info-icon">📺</span>
+                                    영상
+                                </h3>
+                                <div class="info-nav-buttons">
+                                    <button class="info-nav-btn info-prev" disabled>‹</button>
+                                    <button class="info-nav-btn info-next">›</button>
+                                </div>
+                            </div>
+                            <div class="info-card-content">
+                                <div class="info-items">
+                                    <a href="https://www.naver.com/" target="_blank" class="info-item info-link">
+                                        <h4 class="info-item-title">AI로 1시간 만에 앱 만들기</h4>
+                                        <p class="info-item-desc">Claude와 Cursor를 활용해 실제 앱을 개발하는 과정을...</p>
+                                        <span class="info-item-date">조회수 245K</span>
+                                    </a>
+                                    <a href="https://www.naver.com/" target="_blank" class="info-item info-link">
+                                        <h4 class="info-item-title">미드저니 고급 활용법 총정리</h4>
+                                        <p class="info-item-desc">프로페셔널한 이미지 생성을 위한 미드저니 팁과...</p>
+                                        <span class="info-item-date">조회수 189K</span>
+                                    </a>
+                                    <a href="https://www.naver.com/" target="_blank" class="info-item info-link">
+                                        <h4 class="info-item-title">AI 업무 자동화 실전 사례</h4>
+                                        <p class="info-item-desc">실제 회사에서 AI를 활용해 업무 효율을 3배 높인...</p>
+                                        <span class="info-item-date">조회수 156K</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="info-card-footer">
+                                <div class="info-indicators">
+                                    <span class="info-dot active"></span>
+                                    <span class="info-dot"></span>
+                                    <span class="info-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        커뮤니티 카드
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <h3 class="info-card-title">
+                                    <span class="info-icon">👥</span>
+                                    커뮤니티
+                                </h3>
+                                <div class="info-nav-buttons">
+                                    <button class="info-nav-btn info-prev" disabled>‹</button>
+                                    <button class="info-nav-btn info-next">›</button>
+                                </div>
+                            </div>
+                            <div class="info-card-content">
+                                <div class="info-items">
+                                    <a href="https://www.naver.com/" target="_blank" class="info-item info-link">
+                                        <h4 class="info-item-title">한국 AI 개발자 모임</h4>
+                                        <p class="info-item-desc">AI 개발자들이 모여 최신 기술을 공유하고 협업하는...</p>
+                                        <span class="info-item-date">멤버 15.2K</span>
+                                    </a>
+                                    <a href="https://www.naver.com/" target="_blank" class="info-item info-link">
+                                        <h4 class="info-item-title">AI 스타트업 네트워킹</h4>
+                                        <p class="info-item-desc">AI 기반 스타트업 창업자와 투자자들의 네트워킹...</p>
+                                        <span class="info-item-date">멤버 8.7K</span>
+                                    </a>
+                                    <a href="https://www.naver.com/" target="_blank" class="info-item info-link">
+                                        <h4 class="info-item-title">AI 활용 사례 공유방</h4>
+                                        <p class="info-item-desc">다양한 분야에서 AI를 활용한 실제 사례와 노하우를...</p>
+                                        <span class="info-item-date">멤버 22.1K</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="info-card-footer">
+                                <div class="info-indicators">
+                                    <span class="info-dot active"></span>
+                                    <span class="info-dot"></span>
+                                    <span class="info-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            ===== -->
+
+            <section id="reviews-coming-soon" class="reviews-coming-soon-section">
+                <div class="section-content">
+                    <h2 class="section-title">💬 AI 툴 사용 후기</h2>
+                    
+                    <div class="coming-soon-container">
+                        <div class="coming-soon-main">
+                            <div class="coming-soon-icon">📝</div>
+                            <h3 class="coming-soon-title">후기 시스템 준비 중</h3>
+                            <p class="coming-soon-desc">곧 여러분의 AI 툴 사용 후기를 공유할 수 있어요!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3 class="footer-logo">AllAI</h3>
+                <p class="footer-desc">나에게 맞는 AI 툴을 찾아주는 큐레이션 서비스<br>올바른 AI 도구 선택의 시작: AllAI</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4 class="footer-section-title">서비스</h4>
+                    <ul class="footer-nav">
+                        <li><a href="tools.html">툴 찾기</a></li>
+                        <li><a href="reviews.html">사용 후기</a></li>
+                        <li><a href="guide.html">입문 가이드</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-contact">
+                <h4 class="footer-section-title">문의</h4>
+                <p class="footer-email">dev3foot@gmail.com</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="footer-copyright">© Copyright 2025. AllAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AI 툴 데이터베이스 -->
+    <script src="data/ai-tools-database.js"></script>
+    <!-- AI 툴 렌더링 시스템 -->
+    <script src="js/ai-tools-renderer.js"></script>
+    <!-- 기존 메인 스크립트 -->
+    <script src="js/main.js"></script>
+</body>
+</html>
