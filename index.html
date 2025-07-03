@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Discover</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="meta data/favicon.png">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AI Discover">
+    <meta property="og:description" content="최신 AI 도구들을 발견하고 탐색하세요. 글쓰기, 이미지, 개발, 영상, 음악 등 다양한 분야의 AI 도구를 한눈에 확인할 수 있습니다.">
+    <meta property="og:image" content="meta data/meta-img.png">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Discover">
+    <meta name="twitter:description" content="최신 AI 도구들을 발견하고 탐색하세요. 글쓰기, 이미지, 개발, 영상, 음악 등 다양한 분야의 AI 도구를 한눈에 확인할 수 있습니다.">
+    <meta name="twitter:image" content="meta data/meta-img.png">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #30F274;
+            --secondary-color: #26C95F;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --bg-primary: #1f2937;
+            --bg-secondary: #111827;
+            --border-color: #374151;
+            --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+            --hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--bg-primary);
+            box-shadow: var(--card-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                position: relative;
+            }
+
+            .header-actions {
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+
+            .vip-button {
+                padding: 0.4rem 1rem;
+                font-size: 0.813rem;
+            }
+        }
+
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .vip-button {
+            background-color: var(--primary-color);
+            color: var(--bg-secondary);
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .vip-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        .insta-link {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .insta-link:hover {
+            background-color: rgba(48, 242, 116, 0.1);
+        }
+
+        .insta-link img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+
+
+        h1 {
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+
+        /* Info Text */
+        .info-text {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-size: 0.875rem;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-tab {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .filter-tab:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .filter-tab.active {
+            background-color: var(--primary-color);
+            color: var(--bg-secondary);
+            font-weight: 600;
+            border-color: var(--primary-color);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Tool Card */
+        .tool-card {
+            background-color: var(--bg-primary);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            border: 1px solid transparent;
+        }
+
+        .tool-card:hover {
+            box-shadow: var(--hover-shadow);
+            transform: translateY(-2px);
+            border: 1px solid rgba(48, 242, 116, 0.3);
+        }
+
+        .tool-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-description {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .tool-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+        }
+
+        .tag.tag-highlight {
+            background-color: var(--primary-color);
+            color: var(--bg-secondary);
+            border-color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-state h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Search Bar */
+        .search-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 3rem 0.75rem 1rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(48, 242, 116, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-clear {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.5rem;
+            font-size: 1.25rem;
+            line-height: 1;
+            display: none;
+            transition: color 0.2s;
+        }
+
+        .search-clear:hover {
+            color: var(--text-primary);
+        }
+
+        .search-clear.visible {
+            display: block;
+        }
+
+        /* Search highlight */
+        .highlight {
+            background-color: var(--primary-color);
+            color: var(--bg-secondary);
+            padding: 0 2px;
+            border-radius: 2px;
+            font-weight: 500;
+        }
+
+        /* Error State */
+        .error-state {
+            text-align: center;
+            padding: 3rem;
+            color: #f87171;
+        }
+
+        .error-state h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--bg-primary);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .modal-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background-image: url('img/ad-1.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .modal-image:hover {
+            transform: scale(1.02);
+        }
+
+        .modal-close-button {
+            background-color: var(--primary-color);
+            color: var(--bg-secondary);
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-close-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>AI Discover</h1>
+            <div class="header-actions">
+                <button class="vip-button" id="vipButton">VIP 전용</button>
+                <a href="https://www.instagram.com/dev3foot/" target="_blank" rel="noopener noreferrer" class="insta-link">
+                    <img src="icon-insta.svg" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <p class="info-text">※ 개세픽: 개발세발이 추천하는 도구라는 뜻</p>
+        <div class="search-container">
+            <input 
+                type="text" 
+                class="search-input" 
+                id="searchInput" 
+                placeholder="AI 도구 이름이나 기능으로 검색해 보세요"
+                autocomplete="off"
+            >
+            <button class="search-clear" id="searchClear" aria-label="검색어 삭제">×</button>
+        </div>
+        <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">전체</button>
+            <button class="filter-tab" data-filter="개세픽">개세픽</button>
+            <button class="filter-tab" data-filter="대화형AI">대화형AI</button>
+            <button class="filter-tab" data-filter="텍스트">텍스트</button>
+            <button class="filter-tab" data-filter="이미지">이미지</button>
+            <button class="filter-tab" data-filter="개발">개발</button>
+            <button class="filter-tab" data-filter="CLI">CLI</button>
+            <button class="filter-tab" data-filter="영상생성">영상생성</button>
+            <button class="filter-tab" data-filter="영상편집">영상편집</button>
+            <button class="filter-tab" data-filter="음악">음악</button>
+            <button class="filter-tab" data-filter="음성">음성</button>
+            <button class="filter-tab" data-filter="음성인식">음성인식</button>
+            <button class="filter-tab" data-filter="디자인">디자인</button>
+            <button class="filter-tab" data-filter="UIUX">UIUX</button>
+            <button class="filter-tab" data-filter="검색">검색</button>
+            <button class="filter-tab" data-filter="업무도구">업무도구</button>
+            <button class="filter-tab" data-filter="웹사이트빌더">웹사이트빌더</button>
+            <button class="filter-tab" data-filter="창작">창작</button>
+            <button class="filter-tab" data-filter="학습/연구">학습/연구</button>
+            <button class="filter-tab" data-filter="플랫폼">플랫폼</button>
+            <button class="filter-tab" data-filter="로컬AI">로컬AI</button>
+            <button class="filter-tab" data-filter="아바타">아바타</button>
+            <button class="filter-tab" data-filter="3D">3D</button>
+        </div>
+        <div id="toolsContainer" class="tools-grid">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>AI 툴을 불러오는 중...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="vipModal">
+        <div class="modal-content">
+            <p class="modal-title">광고입니다. 봐주셔서 감사합니다.<br>지금부터 당신은 나의 VIP</p>
+            <a href="https://product.kyobobook.co.kr/detail/S000216922517" target="_blank" rel="noopener noreferrer">
+                <div class="modal-image"></div>
+            </a>
+            <button class="modal-close-button" id="modalCloseButton">창 닫고 복 받기</button>
+        </div>
+    </div>
+
+    <script src="tools_data.js"></script>
+    <script>
+        // Global variables
+        let allTools = [];
+        let currentFilter = 'all';
+        let searchQuery = '';
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', () => {
+            setupFilterTabs();
+            setupModal();
+            setupSearch();
+            loadMockData();
+        });
+
+        // Setup filter tabs
+        function setupFilterTabs() {
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Update active state
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Apply filter
+                    currentFilter = tab.dataset.filter;
+                    renderTools();
+                });
+            });
+        }
+
+        // Setup modal
+        function setupModal() {
+            const vipButton = document.getElementById('vipButton');
+            const vipModal = document.getElementById('vipModal');
+            const modalCloseButton = document.getElementById('modalCloseButton');
+
+            vipButton.addEventListener('click', () => {
+                vipModal.classList.add('active');
+            });
+
+            modalCloseButton.addEventListener('click', () => {
+                vipModal.classList.remove('active');
+            });
+
+            // Close modal when clicking outside
+            vipModal.addEventListener('click', (e) => {
+                if (e.target === vipModal) {
+                    vipModal.classList.remove('active');
+                }
+            });
+        }
+
+        // Setup search
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchClear = document.getElementById('searchClear');
+
+            // Search input event
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.trim();
+                updateSearchClearButton();
+                renderTools();
+            });
+
+            // Clear button event
+            searchClear.addEventListener('click', () => {
+                searchInput.value = '';
+                searchQuery = '';
+                updateSearchClearButton();
+                renderTools();
+                searchInput.focus();
+            });
+
+            // Update clear button visibility
+            function updateSearchClearButton() {
+                if (searchQuery) {
+                    searchClear.classList.add('visible');
+                } else {
+                    searchClear.classList.remove('visible');
+                }
+            }
+        }
+
+        // Highlight search terms in text
+        function highlightText(text, searchQuery) {
+            if (!searchQuery) return text;
+            
+            const escapedQuery = searchQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`(${escapedQuery})`, 'gi');
+            
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+
+        // Load data
+        function loadMockData() {
+            allTools = AI_TOOLS_DATA;
+            renderTools();
+        }
+
+        // Render tools based on current filter
+        function renderTools() {
+            const container = document.getElementById('toolsContainer');
+            const filteredTools = filterTools();
+
+            if (filteredTools.length === 0) {
+                const message = searchQuery 
+                    ? `"${searchQuery}"에 대한 검색 결과가 없습니다` 
+                    : '선택한 카테고리에 도구가 없습니다';
+                const submessage = searchQuery 
+                    ? '아니 없다고요? 샅샅이 뒤져서 곧 추가할게요!' 
+                    : '다른 필터를 선택해보세요';
+                    
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <h2>${message}</h2>
+                        <p>${submessage}</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filteredTools.map(tool => {
+                // '개세픽' 태그를 첫번째로 이동
+                const sortedTags = [...tool.tags].sort((a, b) => {
+                    if (a === '개세픽') return -1;
+                    if (b === '개세픽') return 1;
+                    return 0;
+                });
+                
+                // Apply highlighting to name and description
+                const highlightedName = highlightText(tool.name, searchQuery);
+                const highlightedDescription = highlightText(tool.description, searchQuery);
+                
+                return `
+                    <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="tool-card">
+                        <h3 class="tool-name">${highlightedName}</h3>
+                        <p class="tool-description">${highlightedDescription}</p>
+                        <div class="tool-tags">
+                            ${sortedTags.map(tag => `<span class="tag${tag === '개세픽' ? ' tag-highlight' : ''}">${tag}</span>`).join('')}
+                        </div>
+                    </a>
+                `;
+            }).join('');
+        }
+
+        // Filter tools based on selected filter and search query
+        function filterTools() {
+            let filtered = allTools;
+
+            // Apply search filter
+            if (searchQuery) {
+                const query = searchQuery.toLowerCase();
+                filtered = filtered.filter(tool => {
+                    // Search in name
+                    if (tool.name.toLowerCase().includes(query)) return true;
+                    
+                    // Search in description
+                    if (tool.description.toLowerCase().includes(query)) return true;
+                    
+                    // Search in tags
+                    if (tool.tags.some(tag => tag.toLowerCase().includes(query))) return true;
+                    
+                    return false;
+                });
+            }
+
+            // Apply category filter
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(tool => 
+                    tool.tags.some(tag => tag.toLowerCase() === currentFilter.toLowerCase())
+                );
+            }
+            
+            return filtered;
+        }
+
+    </script>
+</body>
+</html>
