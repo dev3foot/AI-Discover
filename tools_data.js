@@ -683,5 +683,77 @@ const AI_TOOLS_DATA = [
         description: '키워드 분석, 영상 아이디어 제안, 썸네일 제작, 트렌드 추적 등 YouTube 채널 성장을 위한 올인원 최적화 도구',
         url: 'https://www.vidiq.com',
         tags: ['업무도구', '창작']
+    },
+    {
+        name: 'Orchids',
+        description: '프롬프트 입력으로 자연스러운 앱, 웹 사이트를 만들어 줌',
+        url: 'https://www.orchids.app/',
+        tags: ['웹사이트빌더', 'UIUX']
+    },
+    {
+        name: 'Higgsfield',
+        description: '다양한 시네마틱 카메라 움직임 컨트롤이 가능한 AI 비디오 생성 모델',
+        url: 'https://higgsfield.ai',
+        tags: ['영상생성', '이미지', '아바타']
+    },
+    {
+        name: 'alphaXiv',
+        description: 'AI 연구 논문을 자동으로 읽기 쉬운 블로그 포스트로 변환해 주는 AI 기반 플랫폼',
+        url: 'https://www.alphaxiv.org/',
+        tags: ['학습/연구']
+    },
+    {
+        name: 'flowith',
+        description: '전통적인 챗 UI 대신 2차원 캔버스에서 여러 대화 흐름을 다룰 수 있는 AI 협업 툴',
+        url: 'https://flowith.io/blank',
+        tags: ['업무도구']
+    },
+    {
+        name: 'Manus',
+        description: '생각을 행동으로 바꿔주는 범용 AI 에이전트, 업무와 생활의 다양한 작업을 대신 처리',
+        url: 'https://manus.im/',
+        tags: ['업무도구', '로컬AI']
+    },
+    {
+        name: 'Vizcom',
+        description: '스케치 3D로 만들어 줌',
+        url: 'https://www.vizcom.ai/',
+        tags: ['3D']
+    },
+    {
+        name: 'Hyper3D',
+        description: '이미지 넣으면 3D로 만들어 줌',
+        url: 'https://hyper3d.ai/',
+        tags: ['3D']
+    },
+    {
+        name: 'Mokker',
+        description: '제품 목업 만들어 줌',
+        url: 'https://mokker.ai/',
+        tags: ['이미지', '디자인']
+    },
+    {
+        name: 'Logome',
+        description: '로고 디자인, 브랜드 키트 생성',
+        url: 'https://www.logome.ai/',
+        tags: ['디자인']
+    },
+    {
+        name: 'OpusClip',
+        description: '롱폼 > 숏폼 영상 자동 변환',
+        url: 'https://www.opus.pro/',
+        tags: ['영상편집']
+    },
+    {
+        name: 'Viggle',
+        description: '춤추거나 움직이는 캐릭터 만들어 줌',
+        url: 'https://viggle.ai/home',
+        tags: ['영상생성']
+    },
+    {
+        name: 'Lyria',
+        description: 'Google DeepMind에서 개발한 AI 음악 생성 모델',
+        url: 'https://deepmind.google/models/lyria/',
+        tags: ['음악']
     }
 ];
